@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{3ED53AFD-D637-4A7D-B884-F78595D96C92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryCoConsole", "Console\GroceryCoConsole.csproj", "{3ED53AFD-D637-4A7D-B884-F78595D96C92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{DE76CAE2-C59B-46CF-A2DB-F8AE0C88627E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3ED53AFD-D637-4A7D-B884-F78595D96C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ED53AFD-D637-4A7D-B884-F78595D96C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ED53AFD-D637-4A7D-B884-F78595D96C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE76CAE2-C59B-46CF-A2DB-F8AE0C88627E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE76CAE2-C59B-46CF-A2DB-F8AE0C88627E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE76CAE2-C59B-46CF-A2DB-F8AE0C88627E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE76CAE2-C59B-46CF-A2DB-F8AE0C88627E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
