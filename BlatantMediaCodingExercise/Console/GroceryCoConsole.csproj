@@ -50,6 +50,7 @@
     <Compile Include="Infrastructure\FileInput.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Catalogue.cs" />
+    <Compile Include="Model\CheckedOutItem.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\PriceCatalogue.cs" />
     <Compile Include="Model\PromotionCatalogue.cs" />
@@ -63,7 +64,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Resources\cart.json" />
+    <Content Include="Resources\shopping-cart.txt" />
     <None Include="Resources\promotions.json" />
     <None Include="Resources\price-catalogue.json" />
   </ItemGroup>
