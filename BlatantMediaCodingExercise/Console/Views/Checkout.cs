@@ -8,14 +8,15 @@ namespace GroceryCoConsole.Views
     /// </summary>
     public static class Checkout
     {
-        private static readonly CheckoutController _checkoutController = new CheckoutController();
-        public static void Display()
+        private static CheckoutController CheckoutController = new CheckoutController();
+        public static void  Display()
         {
             const string checkoutTemplate = "1. Checkout Items\n" +
                                           "2. View Price Catalogue\n" +
-                                          "3. View Promotion Catalogue\n" +
+                                          "3. View PromotionCatalogue\n" +
                                           "4. Sign Out\n" +
                                           "Please select an action: ";
+
             var input = ' ';
             while (input != '4')
             {
@@ -29,15 +30,15 @@ namespace GroceryCoConsole.Views
                 {
                     // Start Checkout
                     case '1':
-                        output += _checkoutController.Checkout();
+                        output += CheckoutController.Checkout();
                         break;
                     // View Price Catalogue
                     case '2':
-                        output += _checkoutController.ShowPriceCatalogue();
+                        output += CheckoutController.ShowPriceCatalogue();
                         break;
                     // View PromotionCatalogue
                     case '3':
-                        output += _checkoutController.ShowPromotionCatalogue();
+                        output += CheckoutController.ShowPromotionCatalogue();
                         break;
                     // Close the program    
                     case '4':
@@ -51,6 +52,7 @@ namespace GroceryCoConsole.Views
 
                 Console.WriteLine(output);
             }
+            Console.ReadKey();
         }
     }
 }

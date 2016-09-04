@@ -15,7 +15,7 @@ namespace GroceryCoConsole.Model
 
             foreach (var item in Items)
             {
-                output += $"=== {item.Name} ${item.SalePrice}\n";
+                output += $"=== {item.Name} ${item.Price}\n";
             }
 
             return output;

@@ -1,44 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace GroceryCoConsole.Model
 {
     public class Receipt
     {
-        public decimal RegularPrice
+        public decimal RegularPrice { get; set; }
+        public decimal TotalSaved { get; set; }
+        public decimal TotalPrice { get; set; }
+        public IList<Item> CheckedOutItems { get; set; }
+
+        public Receipt(IList<Item> items)
         {
-            get { return CheckedOutItems.Sum(x => x.Price); }
+            CheckedOutItems = items;
         }
 
-        public decimal TotalSaved => RegularPrice - TotalPrice;
-        
-        public decimal TotalPrice 
+        private void CalculatePrice()
         {
-            get
+            foreach (var checkedOutItem in CheckedOutItems)
             {
-                var onSaleItems = CheckedOutItems.Where(x => x.OnSale).Sum(x => x.SalePrice);
-                var regularItems = CheckedOutItems.Where(x => x.OnSale == false).Sum(x => x.Price);
-                return onSaleItems + regularItems;
+
+                if (checkedOutItem.OnSale)
+                {
+                    
+                }
             }
         }
-        public IList<CheckedOutItem> CheckedOutItems { get; set; }
 
-        public Receipt()
+        public void Print()
         {
-            CheckedOutItems = new List<CheckedOutItem>();
-        }
-
-        public override string ToString()
-        {
-            var output = "";
-
-            foreach (var item in CheckedOutItems)
-            {
-                
-            }
-
-            return output;
+            
         }
     }
 }
