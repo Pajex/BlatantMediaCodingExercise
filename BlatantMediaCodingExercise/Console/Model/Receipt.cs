@@ -33,6 +33,21 @@ namespace GroceryCoConsole.Model
         {
             var output = "";
 
+            /*
+             Receipt Number                     Date
+             Teller Name
+             ---------------------------------------
+             Quantity 
+             Name    
+             if(Quantity > 1) (@0.00/ea)         
+             Price
+             if(OnSale) SalePrice
+             ---------------------------------------
+             Regular Price
+             Total Saved
+             Total Paid
+             */
+
             foreach (var item in CheckedOutItems)
             {
                 
