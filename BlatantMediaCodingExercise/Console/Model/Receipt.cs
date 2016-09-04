@@ -44,16 +44,17 @@ namespace GroceryCoConsole.Model
                 {
                     if (item.Quantity > 1)
                     {
-                        output += $"\t{"(@"+item.SalePrice+"/ea)",8:C2}{item.SalePrice * item.Quantity,16:C2}\n"; 
+                        output += $"  {"(@$"+item.SalePrice+"/ea)",-12:C2}{item.SalePrice * item.Quantity,12:C2}\n"; 
                     }
                     else
                     {
-                        output += $"{item.SalePrice,27:C2}\n";
+                        output += $"{item.SalePrice,-24:C2}\n";
                     }
+                    
                 }
                 else if (item.Quantity > 1)
                 {
-                    output += $"(@{item.Price,8:C2}/ea)\t{item.Price * item.Quantity,5:C2}\n";
+                    output += $" {"(@$"+item.Price+"/ea)",-12:C2}{item.Price * item.Quantity,12:C2}\n";
                 }
                 else
                 {
@@ -67,8 +68,6 @@ namespace GroceryCoConsole.Model
             output += $"TOTAL: {TotalPrice,27:C2}\n\n";
             output += "----------------------------------\n";
             output += $"Balance Due: {TotalPrice,21:C2}\n\n";
-
-            
 
             return output;
         }

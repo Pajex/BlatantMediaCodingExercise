@@ -10,7 +10,19 @@
     },
     {
       "Name": "steak",
-      "Price": "5.00" 
+      "Price": "5.00"
+    },
+    {
+      "Name": "orange",
+      "Price": ".83"
+    },
+    {
+      "Name": "yogurt",
+      "Price": "3.00"
+    }, 
+    {
+      "Name": "pizza",
+      "Price": "12.00"  
     }
   ]
 }
