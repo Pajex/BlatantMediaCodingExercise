@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using GroceryCoConsole.Infrastructure;
 using GroceryCoConsole.Model;
@@ -10,14 +11,25 @@ namespace GroceryCoConsole.Service
 {
     public class CheckoutService
     {
-        public void ProcessCheckout()
+        public Queue<string> GetShoppingCart(string shoppingCartRel)
         {
-            
+            var shoppingCart = File.ReadAllLines(shoppingCartRel);
+            if (shoppingCart == null) throw new ArgumentNullException();
+
+            var result = new Queue<string>();
+
+            foreach (var item in shoppingCart)
+            {
+                result.Enqueue(item);
+            }
+
+            return result;
+
         }
 
-        public PriceCatalogue GetPriceCatalogue(string priceCatalogueRel) 
+        public PriceCatalogue GetPriceCatalogue(string priceCatalogueRel)
         {
-            var priceCatalogueJson = FileInput.ReadFile(priceCatalogueRel);
+            var priceCatalogueJson = File.ReadAllText(priceCatalogueRel);
             if (priceCatalogueJson == null) throw new ArgumentNullException();
 
             var jObject = JObject.Parse(priceCatalogueJson);
@@ -26,7 +38,8 @@ namespace GroceryCoConsole.Service
 
             foreach (var token in jToken)
             {
-                result.Add(JsonConvert.DeserializeObject<Item>(token.ToString()));
+                var item = JsonConvert.DeserializeObject<Item>(token.ToString());
+                result.Add(item);
             }
 
             return new PriceCatalogue(result);
@@ -34,7 +47,7 @@ namespace GroceryCoConsole.Service
 
         public PromotionCatalogue GetPromotionalCatalogue(string promotionsRel)
         {
-            var promotionCatalogueJson = FileInput.ReadFile(promotionsRel);
+            var promotionCatalogueJson = File.ReadAllText(promotionsRel);
             if (promotionCatalogueJson == null) throw new ArgumentNullException();
 
             var jObject = JObject.Parse(promotionCatalogueJson);
@@ -43,7 +56,9 @@ namespace GroceryCoConsole.Service
 
             foreach (var token in jToken)
             {
-                result.Add(JsonConvert.DeserializeObject<Item>(token.ToString()));
+                var item = JsonConvert.DeserializeObject<Item>(token.ToString());
+                item.OnSale = true;
+                result.Add(item);
             }
 
             return new PromotionCatalogue(result);

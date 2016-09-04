@@ -1,6 +1,6 @@
 ﻿{
   "flat-sale": [
-    { "apple": ".50" },
-    { "steak": "4.25" }
+    { "Name": "apple", "SalePrice": ".50"  },
+    { "Name": "steak", "SalePrice": "4.00"  }
   ]
 }
