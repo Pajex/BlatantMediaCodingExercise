@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Infrastructure\FileInput.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Catalogue.cs" />
     <Compile Include="Model\CheckedOutItem.cs" />

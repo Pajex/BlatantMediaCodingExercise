@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using GroceryCoConsole.Infrastructure;
 using GroceryCoConsole.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
