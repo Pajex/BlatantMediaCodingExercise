@@ -2,16 +2,16 @@
 
 namespace GroceryCoConsole.Model
 {
-    public class PriceCatalogue : Catalogue
+    public class PromotionCatalogue : Catalogue
     {
-        public PriceCatalogue(IList<Item> cataloguedItems)
+        public PromotionCatalogue(IList<Item> promotionalItems)
         {
-            Items = cataloguedItems;
+            Items = promotionalItems;
         }
 
         public override string ToString()
         {
-            var output = "=== Price Catalogue\n";
+            var output = "=== Promotion Catalogue\n";
 
             foreach (var item in Items)
             {
