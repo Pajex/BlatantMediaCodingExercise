@@ -11,11 +11,14 @@ namespace GroceryCoConsole.Model
 
         public override string ToString()
         {
-            var output = "=== Promotion Catalogue\n";
+            var output = "-----------------------------\n";
+            output += $"{"Promotion Catalogue",24}\n";
+            output += "-----------------------------\n";
+            output += $"{"Item",8} {"Discounted Price",18}\n";
 
             foreach (var item in Items)
             {
-                output += $"=== {item.Name} ${item.SalePrice}\n";
+                output += $"{item.Name,8} {item.SalePrice,7:C2}\n";
             }
 
             return output;

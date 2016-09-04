@@ -23,8 +23,8 @@ namespace GroceryCoConsole.Views
                 Console.Write(checkoutTemplate);
 
                 input = Console.ReadKey().KeyChar;
-
-                var output = "\n";
+                Console.WriteLine();
+                var output = "";
                 switch (input)
                 {
                     // Start Checkout

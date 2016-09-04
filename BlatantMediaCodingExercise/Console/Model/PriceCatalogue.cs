@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GroceryCoConsole.Model
 {
@@ -11,11 +12,14 @@ namespace GroceryCoConsole.Model
 
         public override string ToString()
         {
-            var output = "=== Price Catalogue\n";
+            var output = "--------------------------\n";
+            output += $"{"Price Catalogue",20}\n";
+            output += "--------------------------\n";
+            output += $"{"Item",8} {"Price",12}\n";
 
             foreach (var item in Items)
             {
-                output += $"=== {item.Name} ${item.Price}\n";
+                output += $"{item.Name,8} {item.Price,12:C2}\n";
             }
 
             return output;
