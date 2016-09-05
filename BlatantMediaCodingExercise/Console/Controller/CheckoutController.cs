@@ -4,7 +4,7 @@ using GroceryCoConsole.Service;
 
 namespace GroceryCoConsole.Controller
 {
-    public  class CheckoutController
+    public class CheckoutController
     {
         private readonly CheckoutService _checkoutService = new CheckoutService();
         private const string PriceCatalogueRelativePath = "../../Resources/price-catalogue.json";
@@ -21,7 +21,7 @@ namespace GroceryCoConsole.Controller
             //// Load price catalogue and promotional resources
             // Parse from JSON to respective Model (PriceCatalogue, PromotionCatalogue)
             var priceCatalogue = _checkoutService.GetPriceCatalogue(PriceCatalogueRelativePath);
-            var promotionCatalogue = _checkoutService.GetPromotionalCatalogue(PromotionsRelativePath);
+            var promotionCatalogue = _checkoutService.GetPromotionCatalogue(PromotionsRelativePath);
             
             // Read items from cart.json
             var shoppingCart = _checkoutService.GetShoppingCart(ShoppingCartRelativePath);
@@ -92,7 +92,7 @@ namespace GroceryCoConsole.Controller
         public string ShowPromotionCatalogue()
         {
             // Call service layer to retrieve Promotions Catalogue
-            var promotionCatalogue = _checkoutService.GetPromotionalCatalogue(PromotionsRelativePath);
+            var promotionCatalogue = _checkoutService.GetPromotionCatalogue(PromotionsRelativePath);
 
             // Return "view" of promotion catalogue
             return promotionCatalogue.ToString();

@@ -8,6 +8,9 @@ using Newtonsoft.Json.Linq;
 
 namespace GroceryCoConsole.Service
 {
+    /// <summary>
+    /// Service in charge of retrieving the data from resources.
+    /// </summary>
     public class CheckoutService
     {
         /// <summary>

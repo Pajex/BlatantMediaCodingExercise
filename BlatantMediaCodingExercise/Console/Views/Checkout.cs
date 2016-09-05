@@ -4,7 +4,7 @@ using GroceryCoConsole.Controller;
 namespace GroceryCoConsole.Views
 {
     /// <summary>
-    ///  class...
+    /// Represents the checkout 'view'.
     /// </summary>
     public static class Checkout
     {

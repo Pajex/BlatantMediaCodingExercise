@@ -39,6 +39,7 @@ namespace Tests
         [TestMethod]
         public void JSONToPromotionCatalogue()
         {
+            // arrange
             var promotionCatalogueJson = "{ 'flat-sale': [ { 'Name': 'pear', 'SalePrice': '1.50' }]}";
             var expected = new Item
             {
@@ -46,12 +47,12 @@ namespace Tests
                 SalePrice = 1.50
             };
 
-
+            // act
             var jObject = JObject.Parse(promotionCatalogueJson);
             var jToken = jObject["flat-sale"].Children().ToList();
             var actual = JsonConvert.DeserializeObject<Item>(jToken[0].ToString());
 
-
+            // assert
             Assert.AreEqual(expected.ToString(), actual.ToString());
         }
 
