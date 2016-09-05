@@ -9,6 +9,8 @@ namespace GroceryCoConsole.Model
             Items = promotionalItems;
         }
 
+        public PromotionCatalogue() {}
+
         public override string ToString()
         {
             var output = "-----------------------------\n";
@@ -18,7 +20,7 @@ namespace GroceryCoConsole.Model
 
             foreach (var item in Items)
             {
-                output += $"{item.Name,8} {item.SalePrice,7:C2}\n";
+                output += $"{item.Name,8} {item.SalePrice,18:C2}\n";
             }
 
             return output;

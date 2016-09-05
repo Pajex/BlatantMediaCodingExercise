@@ -11,6 +11,11 @@ namespace GroceryCoConsole.Controller
         private const string PromotionsRelativePath = "../../Resources/promotions.json";
         private const string ShoppingCartRelativePath = "../../Resources/shopping-cart.txt";
 
+        /// <summary>
+        /// Method which processes the checkout order of a user.
+        /// Loads both the price and promotion catalogues when called.
+        /// </summary>
+        /// <returns>A string which represents the receipt of the customers order.</returns>
         public string Checkout()
         {
             //// Load price catalogue and promotional resources
@@ -25,18 +30,21 @@ namespace GroceryCoConsole.Controller
             
             foreach (var item in shoppingCart)
             {
-                // Determine if item is already in receipt
+                // Item is already in receipt.
                 if (receipt.CheckedOutItems.Any(x => x.Name == item))
                 {
-                    // If item already exists - Update quantity
+                    // Update quantity.
                     receipt.CheckedOutItems.FirstOrDefault(x => x.Name == item).Quantity++;
                 }
+                // New Item to add to receipt.
                 else
                 {
-                    // Determine price of item (price catalogue)
+                    // Search for item in price catalogue.
                     var itemFromPriceCatalogue = priceCatalogue.Items.FirstOrDefault(x => x.Name == item);
+                    // Matching item was found in price catalogue.
                     if (itemFromPriceCatalogue != null)
                     {
+                        // Create new checked out item to be placed in receipt.
                         var checkedOutItem = new CheckedOutItem
                         {
                             Name = item.ToLower(),
@@ -44,12 +52,12 @@ namespace GroceryCoConsole.Controller
                             Quantity = 1
                         };
 
-                        // Determine if item is on sale (promotions)
+                        // Search for item in promotion catalogue.
                         var itemFromPromotionCatalogue = promotionCatalogue.Items.FirstOrDefault(x => x.Name == item);
+                        // Matching item was found in promotion catalogue.
                         if (itemFromPromotionCatalogue != null)
                         {
-                            // If on sale - Set sale price
-                            checkedOutItem.OnSale = true;
+                            // Add Sale Price to CheckedOutItem.
                             checkedOutItem.SalePrice = itemFromPromotionCatalogue.SalePrice;
                         }
 
@@ -62,6 +70,11 @@ namespace GroceryCoConsole.Controller
             return receipt.ToString();
         }
 
+        /// <summary>
+        /// Method which calls the checkout service layer to retrieve the 
+        /// current price catalogue from storage.
+        /// </summary>
+        /// <returns>A string which lists all items stored within the price catalogue.</returns>
         public string ShowPriceCatalogue()
         {
             // Call service layer to retrieve Price Catalogue
@@ -71,6 +84,11 @@ namespace GroceryCoConsole.Controller
             return priceCatalogue.ToString();
         }
 
+        /// <summary>
+        /// Method which calls the checkout service layer to retrieve the
+        /// current promotion catalogue.
+        /// </summary>
+        /// <returns></returns>
         public string ShowPromotionCatalogue()
         {
             // Call service layer to retrieve Promotions Catalogue

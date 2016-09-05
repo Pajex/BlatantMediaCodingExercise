@@ -10,6 +10,8 @@ namespace GroceryCoConsole.Model
             Items = cataloguedItems;
         }
 
+        public PriceCatalogue() {}
+
         public override string ToString()
         {
             var output = "--------------------------\n";

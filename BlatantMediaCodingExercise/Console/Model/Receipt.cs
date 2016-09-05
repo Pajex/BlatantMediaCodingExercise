@@ -6,14 +6,14 @@ namespace GroceryCoConsole.Model
 {
     public class Receipt
     {
-        public decimal RegularPrice
+        public double RegularPrice
         {
             get { return CheckedOutItems.Sum(x => x.Price); }
         }
 
-        public decimal TotalSaved => RegularPrice - TotalPrice;
+        public double TotalSaved => RegularPrice - TotalPrice;
         
-        public decimal TotalPrice 
+        public double TotalPrice 
         {
             get
             {

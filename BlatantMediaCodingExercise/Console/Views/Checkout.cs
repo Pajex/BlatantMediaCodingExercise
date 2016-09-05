@@ -4,11 +4,15 @@ using GroceryCoConsole.Controller;
 namespace GroceryCoConsole.Views
 {
     /// <summary>
-    /// "Fake View" class...
+    ///  class...
     /// </summary>
     public static class Checkout
     {
         private static readonly CheckoutController _checkoutController = new CheckoutController();
+        /// <summary>
+        /// Method which represents rendering a view.
+        /// Calls are made to the CheckoutConstructor based on user input.
+        /// </summary>
         public static void Display()
         {
             const string checkoutTemplate = "1. Checkout Items\n" +

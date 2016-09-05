@@ -47,10 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Catalogue.cs" />
-    <Compile Include="Model\CheckedOutItem.cs" />
-    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Items\CheckedOutItem.cs" />
+    <Compile Include="Model\Items\Item.cs" />
     <Compile Include="Model\PriceCatalogue.cs" />
     <Compile Include="Model\PromotionCatalogue.cs" />
     <Compile Include="Program.cs" />
